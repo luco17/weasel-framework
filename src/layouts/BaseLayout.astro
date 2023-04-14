@@ -12,12 +12,14 @@ import weasel from "../assets/weaselOg.png";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta content="website" property="og:type" />
+    <meta content={title} property="og:title" />
+    <meta content="wondrous-dolphin-b2df9b.netlify.app" property="og:url" />
     <meta property="og:image" content={weasel} />
     <meta
-      content="write your next project in .weasel, the framework that's 27x faster"
+      content="Write your next project in .weasel, the framework that's 27x faster"
       name="description"
     />
-    <meta content="website" property="og:type" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
