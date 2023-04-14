@@ -4,6 +4,7 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+import weasel from "../assets/weaselOg.png";
 ---
 
 <!DOCTYPE html>
@@ -11,12 +12,18 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta property="og:image" content={weasel} />
+    <meta
+      content="write your next project in .weasel, the framework that's 27x faster"
+      name="description"
+    />
+    <meta content="website" property="og:type" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body class="bg-[#FAF6EE]">
-    <main class="bg-[#FAF6EE] p-4 md:p-10 mx-auto max-w-7xl">
+    <main class="mx-auto max-w-7xl bg-[#FAF6EE] p-4 md:p-10">
       <slot />
     </main>
   </body>
