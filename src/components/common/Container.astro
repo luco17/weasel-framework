@@ -1,0 +1,12 @@
+---
+interface Props {
+  bgColour: string;
+  otherStyles: string;
+}
+
+const { bgColour, otherStyles } = Astro.props;
+---
+
+<div class={`p-5 md:p-10 ${bgColour} ${otherStyles} `}>
+  <slot />
+</div>

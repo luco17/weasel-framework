@@ -1,0 +1,72 @@
+---
+import spaceWeasel from "../assets/spaceWeasel.png";
+import SkeletonSticker from "./stickers/SkeletonSticker.astro";
+import OrmSticker from "./stickers/OrmSticker.astro";
+import ShipSticker from "./stickers/ShipSticker.astro";
+import ScaleSticker from "./stickers/ScaleSticker.astro";
+---
+
+<div class="flex grow flex-col gap-1 md:flex-row">
+  <div class="overflow-hidden rounded-xl bg-yellow-400 p-5 md:w-1/2 md:p-10">
+    <div class="flex h-full flex-col gap-10">
+      <h1 class="text-4xl font-bold leading-none">
+        Build &amp; ship your next full stack application <span
+          class="text-red-500">2.7x faster</span
+        >
+      </h1>
+      <p
+        class="text-xl text-gray-700 antialiased md:mt-auto md:text-2xl md:leading-tight"
+      >
+        Built to provide an awesome developer experience, Weasel empowers you to
+        write safe and efficient code. Join the countless developers who have
+        already made the switch to Weasel and experience the difference for
+        yourself.
+      </p>
+      <a
+        class="group inline-flex w-full items-center gap-2 rounded-full bg-stone-100 px-2.5 py-1 text-2xl transition-colors hover:bg-gray-900 hover:text-white"
+        x-data
+        @click="alert('Coming soon')"
+        href=""
+      >
+        <span class="flex-none">Try our starter</span>
+        <div class="h-6 w-full grow overflow-hidden">
+          <div
+            class="relative h-6 w-10 min-w-[2.5rem] transition-[width] duration-300 group-hover:w-full"
+          >
+            <svg
+              width="801"
+              height="23"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="absolute right-0 top-0"
+              ><path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="m790.128 0 10.759 11.193-10.759 11.193L788.687 21l8.465-8.807H0v-2h797.152l-8.465-8.807L790.128 0Z"
+              ></path></svg
+            >
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div
+    class="relative overflow-hidden rounded-xl bg-yellow-400 p-5 md:w-1/2 md:p-10"
+  >
+    <div class="flex h-full items-center">
+      <img src={spaceWeasel} class="rounded-xl" />
+    </div>
+    <div class="absolute top-[5%] w-1/4">
+      <ShipSticker />
+    </div>
+    <div class="absolute right-[7%] top-[8%] w-1/6">
+      <SkeletonSticker />
+    </div>
+    <div class="absolute bottom-[12%] left-[4%] w-1/5">
+      <OrmSticker />
+    </div>
+    <div class="absolute bottom-[18%] right-[4%] w-1/3 rotate-[8deg]">
+      <ScaleSticker />
+    </div>
+  </div>
+</div>
