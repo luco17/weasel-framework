@@ -2,11 +2,15 @@
 import Layout from "../layouts/BaseLayout.astro";
 import TopRow from "../components/TopRow.astro";
 import ContentRow from "../components/ContentRow.astro";
+import Authors from "../components/Authors.astro";
 ---
 
 <Layout title="The .Weasel Framework">
   <section class="flex flex-col gap-1 md:min-h-[calc(100vh-5rem)]">
     <TopRow bgColour="bg-yellow-400" />
     <ContentRow bgColour="bg-yellow-400" />
+  </section>
+  <section class="flex flex-col gap-1">
+    <Authors />
   </section>
 </Layout>

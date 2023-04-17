@@ -1,0 +1,22 @@
+[
+  {
+    "imageSrc": "anya.webp",
+    "name": "Anya Stroud",
+    "description": "Project coordinator, UI designer."
+  },
+  {
+    "imageSrc": "chief.png",
+    "name": "John (Master Chief)",
+    "description": "Renowned galactic warrior. Develops the Weasel ORM."
+  },
+  {
+    "imageSrc": "samus.png",
+    "name": "Samus",
+    "description": "Bug hunter. Builds the testing harness. Loves coffee."
+  },
+  {
+    "imageSrc": "snake.png",
+    "name": "Solid Snake",
+    "description": "FoxHound. Enjoys messing around with front-ends."
+  }
+]
