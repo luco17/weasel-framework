@@ -1,11 +1,39 @@
 ---
-import team from "../data/team.json";
-const { userName = "Solid Snake" } = Astro.props;
+interface User {
+  name: string;
+  description: string;
+  imageSrc: string;
+}
+
+const {
+  users = [
+    {
+      name: "Anya Stroud",
+      description: "Project coordinator, UI designer.",
+      imageSrc: "anya.webp",
+    },
+    {
+      name: "John 117",
+      description: "Renowned galactic warrior. Develops the Weasel ORM.",
+      imageSrc: "chief.png",
+    },
+    {
+      name: "Solid Snake",
+      description: "FoxHound. Enjoys messing around with front-ends.",
+      imageSrc: "snake.png",
+    },
+    {
+      name: "Samus",
+      description: "Bug hunter. Builds the testing harness. Loves coffee.",
+      imageSrc: "samus.png",
+    },
+  ],
+} = Astro.props;
 ---
 
 <!-- <div
   class="flex flex-col gap-1 md:flex-row"
-  x-data={`{ users: '${team}', activeUser: '${team[0].name}'}`}
+  x-data={`{ users: '${users}', activeUser: 0 }`}
 > -->
 <div
   class="flex flex-col gap-1 md:flex-row"
@@ -17,7 +45,7 @@ const { userName = "Solid Snake" } = Astro.props;
     
     ], 
     
-    activeUser: 'Anya Stroud'}"
+    activeUser: 0}"
 >
   <div class="flex w-auto flex-col rounded-xl bg-white p-5 md:w-1/2 md:p-10">
     <div class="self-start rounded-full bg-[#FAF6EE] px-2 py-1">
@@ -29,12 +57,12 @@ const { userName = "Solid Snake" } = Astro.props;
       class="mt-6 flex flex-col space-y-2 md:flex-row md:justify-between md:space-y-0"
     >
       {
-        team.map((member) => (
+        users.map((member: User, i: number) => (
           <div class="flex space-x-2">
             <div
               class="h-16 w-16 shrink-0 overflow-hidden rounded-full bg-gray-900 p-2 md:h-24 md:w-24"
               x-on:click="open = ! open"
-              x-on:mouseover={`activeUser = '${member.name}'`}
+              x-on:mouseover={`activeUser = ${i}`}
             >
               <img
                 src={member.imageSrc}
@@ -54,7 +82,7 @@ const { userName = "Solid Snake" } = Astro.props;
   <div class="hidden w-1/2 rounded-xl bg-zinc-800 p-5 md:flex md:p-10">
     <div class="flex space-x-4" x-transition>
       <img
-        x-bind:src="users.find(user => user.name === activeUser).imageSrc"
+        x-bind:src="users[activeUser].imageSrc"
         alt="solid snake"
         class="h-60"
         x-transition
@@ -62,13 +90,13 @@ const { userName = "Solid Snake" } = Astro.props;
       <div class="space-y-4">
         <h3
           class="text-4xl font-bold text-white antialiased"
-          x-text="activeUser"
+          x-text="users[activeUser].name"
           x-transition
         >
         </h3>
         <p
           class="text-xl font-medium text-white"
-          x-text="users.find(user => user.name === activeUser).description"
+          x-text="users[activeUser].description"
           x-transition
         >
         </p>
