@@ -3,6 +3,7 @@ import Layout from "../layouts/BaseLayout.astro";
 import TopRow from "../components/TopRow.astro";
 import ContentRow from "../components/ContentRow.astro";
 import Authors from "../components/Authors.astro";
+import Creds from "../components/Creds.astro";
 ---
 
 <Layout title="The .Weasel Framework">
@@ -11,6 +12,9 @@ import Authors from "../components/Authors.astro";
     <ContentRow bgColour="bg-yellow-400" />
   </section>
   <section class="flex flex-col gap-1">
-    <Authors is:raw />
+    <Authors />
+  </section>
+  <section>
+    <Creds />
   </section>
 </Layout>
