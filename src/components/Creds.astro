@@ -1,18 +1,67 @@
 ---
 import Community from "./stickers/Community.astro";
 import Starrrr from "./stickers/Starrrr.astro";
+
+const {
+  quotos = [
+    "Just wow",
+    "Weasel saved my life",
+    "I love how fast it is to get going",
+    "How did they make it so quick?!",
+    "Finally, Devex put first",
+    "Kiss your old framework problems goodbye! 💋👋",
+    "Weasel knows the way",
+    "Really impressive",
+    "Makes coding fun again",
+    "Does all the plumbing faff I hate 🪠",
+    "Weasel's got your back",
+    "Portability is top notch",
+    "Blazingly fast 🔥",
+  ],
+} = Astro.props;
+
+// const quoteLimit = getQuotes();
 ---
 
-<div
-  class="relative flex h-full w-auto flex-col justify-between gap-5 overflow-visible rounded-xl bg-green-600 p-5 sm:w-1/2 md:p-10 lg:w-1/4"
->
-  <h4 class="text-4xl font-bold">Trust us</h4>
-  <div class="min-h-[300px]">
-    <Community />
-    <Starrrr />
+<div class="flex flex-col gap-1 md:flex-row">
+  <div
+    class="flex-0 relative flex w-auto flex-col justify-between gap-5 overflow-visible rounded-xl bg-green-600 p-5 md:w-1/2 md:p-10 lg:w-1/4"
+  >
+    <h4 class="text-4xl font-bold">Trust us</h4>
+    <div class="h-[300px]">
+      <Community />
+      <Starrrr />
+    </div>
+    <div>
+      <p>Why develop with Weasel?</p>
+      <strong>It shows you the way</strong>
+    </div>
   </div>
-  <div class="">
-    <p>Why develop with Weasel?</p>
-    <strong>It shows you the way</strong>
+
+  <div class="flex w-auto rounded-xl bg-pink-300 p-5 md:w-1/2 md:p-10 lg:w-3/4">
+    <div class="flex flex-wrap content-start gap-2">
+      {
+        quotos.map((quote: string) => (
+          <div class="rounded-xl bg-stone-50 px-2 py-1">
+            <p class="text-md font-semibold md:text-lg">"{quote}"</p>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </div>
+
+<script>
+  function getQuotes() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth < 1024) {
+      //Mobile Screens and screens <= 1024px
+      return 10; //10 cards
+    } else {
+      // screens > 1024px
+      return 40; //40 cards
+    }
+  }
+
+  const quoteLimit = getQuotes();
+</script>
