@@ -4,6 +4,7 @@ import TopRow from "../components/TopRow.astro";
 import ContentRow from "../components/ContentRow.astro";
 import Authors from "../components/Authors.astro";
 import Creds from "../components/Creds.astro";
+import Eyezo from "../components/stickers/Eyezo.astro";
 ---
 
 <Layout title="The .Weasel Framework">
@@ -16,5 +17,15 @@ import Creds from "../components/Creds.astro";
   </section>
   <section>
     <Creds />
+  </section>
+  <section>
+    <div class="relative flex rounded-xl bg-white p-5 md:p-10">
+      <p class="text-large mt-20 font-medium">Let's get building</p>
+      <div
+        class="absolute right-5 w-[33%] rotate-3 md:w-[25%] lg:w-[20%] xl:w-[15%]"
+      >
+        <Eyezo />
+      </div>
+    </div>
   </section>
 </Layout>
