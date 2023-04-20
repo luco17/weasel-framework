@@ -74,10 +74,10 @@ const {
   function getQuotes() {
     const screenWidth = window.innerWidth;
     return {
-      default: 10,
+      default: 12,
       quoteCount() {
         if (screenWidth < 1024) {
-          return 10;
+          return this.default;
         } else {
           return 40;
         }
