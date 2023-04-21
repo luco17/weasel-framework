@@ -4,7 +4,8 @@ export interface Props {
 }
 
 import Footer from "../components/Footer.astro";
-
+import FloatingButton from "../components/FloatingButton.astro";
+import Menu from "../components/Menu.astro";
 const { title } = Astro.props;
 import weasel from "../assets/weaselOg.png";
 ---
@@ -28,8 +29,13 @@ import weasel from "../assets/weaselOg.png";
   </head>
   <body class="bg-stone-900">
     <main
-      class="mx-auto flex max-w-[2400px] flex-col gap-1 rounded-b-3xl bg-[#E9E3D6] p-4 md:p-10"
+      class="relative mx-auto flex max-w-[2400px] flex-col gap-1 rounded-b-3xl bg-[#E9E3D6] p-4 md:p-10"
+      x-data=" { atTop : false, menuOpen : false }"
+      @keydown.escape="menuOpen = false"
     >
+      <FloatingButton />
+      <Menu />
+
       <slot />
     </main>
     <Footer />

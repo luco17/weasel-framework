@@ -1,0 +1,16 @@
+<div
+  class="fixed inset-x-0 bottom-8 z-10 flex justify-center"
+  @scroll.window="atTop = (window.pageYOffset < 100) ? false : true"
+  x-show="atTop"
+  x-transition:enter="transition ease-out duration-300"
+  x-transition:enter-start="translate-y-full"
+  x-transition:enter-end="translate-y-0"
+  x-transition:leave="transition ease-in duration-200"
+  x-transition:leave-start="translate-y-0"
+  x-transition:leave-end="translate-y-full"
+>
+  <button
+    class="rounded-full bg-[#E9E3D6] px-2 py-1 text-xl font-medium shadow"
+    x-on:click="menuOpen = true">Menu</button
+  >
+</div>
