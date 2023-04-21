@@ -4,18 +4,22 @@ interface Props {
 }
 
 const { bgColour } = Astro.props;
-import Container from "./common/Container.astro";
+import Menu from "./Menu.astro";
 ---
 
-<div class="flex h-20 gap-1">
-  <div
-    class={`p-5 font-bold text-xl leading-none w-2/3 sm:w-auto flex items-center md:p-10 rounded-xl ${bgColour}`}
-  >
-    The .Weasel<br /> Framework
+<div x-data="{ menuOpen: false}" @keydown.escape="menuOpen = false">
+  <div class="flex h-20 gap-1">
+    <div
+      class={`p-5 font-bold text-xl leading-none w-2/3 sm:w-auto flex items-center md:p-10 rounded-xl ${bgColour}`}
+    >
+      The .Weasel<br /> Framework
+    </div>
+    <div class={`${bgColour} hidden grow rounded-xl sm:block`}></div>
+    <button
+      class={`rounded-full text-xl font-semibold ${bgColour} hover:bg-gray-900 hover:text-white py-.5 transition-colors antialiased gap-2 inline-flex px-10 w-1/3 items-center justify-center sm:w-auto cursor-pointer`}
+      x-on:click="menuOpen = true">Menu</button
+    >
   </div>
-  <div class={`${bgColour} hidden grow rounded-xl sm:block`}></div>
-  <button
-    class={`rounded-full text-xl font-semibold ${bgColour} hover:bg-gray-900 hover:text-white py-.5 transition-colors antialiased gap-2 inline-flex px-10 w-1/3 items-center justify-center sm:w-auto`}
-    >Menu</button
-  >
+
+  <Menu />
 </div>

@@ -1,0 +1,16 @@
+---
+interface Props {
+  color: string;
+  text: string;
+}
+
+const { color, text } = Astro.props;
+---
+
+<div class="w-full sm:w-2/3 md:w-1/2">
+  <button
+    type="button"
+    class={`inline-flex w-full rounded-full ${color} px-3 py-2 text-xl md:text-4xl font-bold shadow-sm hover:bg-indigo-500 `}
+    x-on:click="menuOpen = false">{text}</button
+  >
+</div>
